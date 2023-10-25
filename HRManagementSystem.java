@@ -1,16 +1,25 @@
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
-
+import java.util.*;
+import java.util.InputMismatchException;
 
 public class HRManagementSystem {
     public static void main(String[] args) {Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Ném ngoại lệ exception
+            throw new exception ("Lỗi tùy chỉnh xảy ra", 1001);
+        } catch (exception e) {
+            System.out.println("Ngoại lệ: " + e.getMessage());
+            System.out.println("Mã lỗi: " + e.getErrorCode());
+        }
+
+
         company Company = null;
+//       boolean check = true;
+
+
 
         while (true) {
-            System.out.println("Quản lý nhân sự");
+            System.out.println("Quản lý nhân sự :");
             System.out.println("1. Nhập thông tin công ty");
             System.out.println("2. Phân bổ Nhân viên vào Trưởng phòng");
             System.out.println("3. Thêm nhân viên");
@@ -24,24 +33,34 @@ public class HRManagementSystem {
             System.out.println("11. Tìm Giám Đốc có số lượng cổ phần nhiều nhất");
             System.out.println("12. Tính và Xuất tổng THU NHẬP của từng Giám Đốc");
             System.out.println("0. Thoát");
-
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-
+                int choice = scanner.nextInt ();
+                scanner.nextLine ();
             switch (choice) {
                 case 0:
                     System.exit(0);
                     break;
+
+
+
+
                 case 1:
-                    System.out.print("Nhập tên công ty: ");
-                    String companyName = scanner.nextLine();
-                    System.out.print("Nhập mã số thuế: ");
-                    String taxIdentificationNumber = scanner.nextLine();
-                    System.out.print("Nhập doanh thu tháng: ");
-                    double monthlyRevenue = scanner.nextDouble ();  // exception khi người dùng nhập bằng chữ
-                    Company = new company (companyName, taxIdentificationNumber, monthlyRevenue);
-                    System.out.println("Thông tin công ty đã được nhập.\n");
-                    break;
+                  //  try {
+
+
+                        System.out.print ("Nhập tên công ty: ");
+                        String companyName = scanner.nextLine ();
+                        System.out.print ("Nhập mã số thuế: ");
+                        String taxIdentificationNumber = scanner.nextLine ();
+                        System.out.print ("Nhập doanh thu tháng: ");
+                        double monthlyRevenue = scanner.nextDouble ();  // exception khi người dùng nhập bằng chữ
+                        Company = new company (companyName, taxIdentificationNumber, monthlyRevenue);
+                        System.out.println ("Thông tin công ty đã được nhập.\n");
+                        break;
+                  //  }catch (InputMismatchException e){
+                  //     System.out.println ("");
+
+                  //  }
+
                 case 2:
                     if (Company == null) {
                         System.out.println("Vui lòng nhập thông tin công ty trước.");
@@ -156,7 +175,7 @@ public class HRManagementSystem {
                     break;
                 case 5:
                     if (Company == null) {
-                        System.out.println("Vui lòng nhập thông tin công ty trước.");
+                        System.out.println("Vui lòng nhập thông tin công ty trước.\n");
                         break;
                     }
                     List<Employee> companyEmployees = company.getEmployees();
@@ -265,8 +284,10 @@ public class HRManagementSystem {
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
                     break;
-            }
+            }//while (check);
         }
+
+
     }
 
 }
