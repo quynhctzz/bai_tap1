@@ -38,7 +38,7 @@ public class HRManagementSystem {
                     System.out.print("Nhập mã số thuế: ");
                     String taxIdentificationNumber = scanner.nextLine();
                     System.out.print("Nhập doanh thu tháng: ");
-                    double monthlyRevenue = scanner.nextDouble();
+                    double monthlyRevenue = scanner.nextDouble ();  // exception khi người dùng nhập bằng chữ
                     Company = new company (companyName, taxIdentificationNumber, monthlyRevenue);
                     System.out.println("Thông tin công ty đã được nhập.\n");
                     break;
@@ -94,7 +94,7 @@ public class HRManagementSystem {
                     System.out.print("Nhập Số Ngày Làm Việc: ");
                     int daysWorked = scanner.nextInt();
                     System.out.print("Nhập Lương 1 Ngày: ");
-                    double dailyWage = scanner.nextDouble();
+                    double dailyWage = scanner.nextDouble(); // exception khi người dùng nhập bằng chữ
                     System.out.print("Nhập Chức vụ (1 - Giám Đốc, 2 - Trưởng Phòng, 3 - Nhân viên thường): ");
                     int positionChoice = scanner.nextInt();
                     scanner.nextLine();
